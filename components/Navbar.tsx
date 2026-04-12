@@ -57,28 +57,50 @@ export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
     };
   }, []);
 
+  const bgColor = theme === "dark" 
+    ? "bg-[#0a0a0a]/90" 
+    : "bg-[#ffffff]/90";
+  
+  const textColor = theme === "dark"
+    ? "text-[#ededed]"
+    : "text-[#171717]";
+
+  const accentColor = theme === "dark"
+    ? "hover:text-[#a3a3a3]"
+    : "hover:text-[#525252]";
+
+  const borderColor = theme === "dark"
+    ? "border-[#a3a3a3]/20"
+    : "border-[#525252]/20";
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 px-6 py-4 border-b border-gray-200 dark:border-gray-700 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md z-40 transition-transform duration-300 ease-out ${
+      className={`fixed top-0 left-0 right-0 px-6 py-4 border-b ${borderColor} ${bgColor} backdrop-blur-[10px] z-40 transition-transform duration-[400ms] ease-out ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
       style={{
-        transitionTimingFunction: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
       <div className="flex justify-between items-center w-full">
-        <h1 className="font-semibold text-lg tracking-wide">Sourodiptto</h1>
+        <h1 className={`font-semibold text-lg tracking-wide ${textColor}`}>
+          Sourodiptto
+        </h1>
 
         <div className="flex items-center gap-4">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
+            className={`p-2 rounded-lg transition-all duration-300 hover:bg-opacity-10 active:scale-95 group ${
+              theme === "dark" 
+                ? "hover:bg-[#a3a3a3] text-[#ededed]" 
+                : "hover:bg-[#525252] text-[#171717]"
+            }`}
             aria-label="Toggle theme"
             title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
           >
             {theme === "light" ? (
               <svg
-                className="w-5 h-5"
+                className="w-5 h-5 transition-transform duration-300 group-hover:rotate-12"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -86,7 +108,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
               </svg>
             ) : (
               <svg
-                className="w-5 h-5"
+                className="w-5 h-5 transition-transform duration-300 group-hover:rotate-12"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -101,9 +123,10 @@ export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
 
           <button
             onClick={onMenuClick}
-            className="text-sm font-medium px-4 py-2 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-300"
+            className={`text-sm font-medium px-4 py-2 transition-all duration-300 group relative ${textColor} ${accentColor}`}
           >
             Menu
+            <span className="absolute inset-0 -z-10 transition-transform duration-300 group-hover:-translate-x-1" />
           </button>
         </div>
       </div>
