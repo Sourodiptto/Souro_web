@@ -1,17 +1,5 @@
 @import "tailwindcss";
 
-/* Reading Progress Bar */
-#reading-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 2px;
-  background: linear-gradient(to right, currentColor, #666);
-  transform-origin: left;
-  transform: scaleX(0);
-  z-index: 99;
-}
-
 /* Smooth animations */
 @keyframes slideDownFade {
   from {
@@ -45,13 +33,10 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #171717;
 }
 
 h1, h2, h3, p {
-  line-height: 1.618;
-}
-
-/* Transitions */
-* {
-  @apply transition-colors duration-300;
+  line-height: 1.6;
 }
