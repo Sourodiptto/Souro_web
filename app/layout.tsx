@@ -24,7 +24,7 @@ function RootLayoutContent({
       <Navbar onMenuClick={() => setOpen(true)} />
       <MenuOverlay open={open} setOpen={setOpen} />
       <Breadcrumbs />
-      <main className="max-w-[65ch] mx-auto px-6 py-12 pt-24">
+      <main className="max-w-3xl mx-auto px-6 py-12 pt-24">
         {children}
       </main>
       <Footer />

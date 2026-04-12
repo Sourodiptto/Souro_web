@@ -80,8 +80,8 @@ export default function Breadcrumbs() {
         className="w-full py-3 px-6 overflow-x-hidden"
         style={{ marginTop: "60px" }}
       >
-        <div className="max-w-[65ch] mx-auto">
-          <ol className="flex items-center space-x-2 text-sm" style={{ color: "var(--accent)" }}>
+        <div className="max-w-3xl mx-auto">
+          <ol className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
             {displayBreadcrumbs.map((crumb, index) => {
               const isActive = index === displayBreadcrumbs.length - 1;
               const isEllipsis = (crumb as any).isEllipsis;
@@ -90,22 +90,20 @@ export default function Breadcrumbs() {
                 return (
                   <li key="ellipsis" className="relative group">
                     <button
-                      className="transition-opacity duration-300 hover:opacity-70 px-2"
+                      className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors px-2"
                       onClick={() => setShowEllipsis(!showEllipsis)}
                       aria-label="Show more breadcrumbs"
                     >
                       •••
                     </button>
 
-                    {/* Dropdown menu for hidden items */}
                     {showEllipsis && (
-                      <div className="absolute left-0 mt-2 rounded-lg shadow-lg z-50 min-w-max" style={{ backgroundColor: "var(--bg-primary)", borderColor: "var(--accent-light)" }}>
-                        {hiddenBreadcrumbs.map((item, idx) => (
+                      <div className="absolute left-0 mt-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg shadow-lg z-50 min-w-max">
+                        {hiddenBreadcrumbs.map((item) => (
                           <Link
                             key={item.path}
                             href={item.path}
-                            className="block px-4 py-2 transition-opacity duration-300 hover:opacity-70 first:rounded-t-lg last:rounded-b-lg text-sm"
-                            style={{ color: "var(--text-primary)" }}
+                            className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 transition-colors first:rounded-t-lg last:rounded-b-lg text-sm"
                             onClick={() => setShowEllipsis(false)}
                           >
                             {item.label}
@@ -120,7 +118,7 @@ export default function Breadcrumbs() {
               return (
                 <li key={crumb.path} className="flex items-center min-w-0">
                   {index > 0 && (
-                    <span className="mx-1.5 shrink-0" style={{ color: "var(--accent-light)" }} aria-hidden="true">
+                    <span className="text-gray-300 dark:text-gray-700 mx-1.5 shrink-0" aria-hidden="true">
                       /
                     </span>
                   )}
@@ -128,19 +126,17 @@ export default function Breadcrumbs() {
                   {isActive ? (
                     <span
                       aria-current="page"
-                      className="font-medium truncate"
-                      style={{ color: "var(--text-primary)" }}
+                      className="text-gray-700 dark:text-gray-300 font-medium truncate"
                     >
                       {crumb.label}
                     </span>
                   ) : (
                     <Link
                       href={crumb.path}
-                      className="transition-all duration-200 relative group truncate hover:opacity-70"
-                      style={{ color: "var(--text-primary)" }}
+                      className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-200 relative group truncate"
                     >
                       {crumb.label}
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" style={{ backgroundColor: "var(--text-primary)" }} />
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 dark:bg-gray-100 group-hover:w-full transition-all duration-300" />
                     </Link>
                   )}
                 </li>
