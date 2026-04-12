@@ -8,7 +8,7 @@ export default function Home() {
         <h1 className="text-5xl font-bold mb-6">
           I study how decisions shape systems, and how systems quietly shape people.
         </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300">
+        <p className="text-xl coffee-text">
           This is where I think in public, build ideas into products, and track how my understanding evolves.
         </p>
       </section>
@@ -18,28 +18,28 @@ export default function Home() {
         <div className="space-y-8">
           <div className="group cursor-pointer">
             <h2 className="text-lg font-semibold mb-2 group-hover:translate-x-1 transition-transform">→ Work</h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600 coffee-text">
               What I've built and explored. Products, projects, and the patterns behind them.
             </p>
           </div>
           
           <div className="group cursor-pointer">
             <h2 className="text-lg font-semibold mb-2 group-hover:translate-x-1 transition-transform">→ Now</h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600 coffee-text">
               What currently has my attention. Real-time glimpses into what I'm thinking about and building.
             </p>
           </div>
           
           <div className="group cursor-pointer">
             <h2 className="text-lg font-semibold mb-2 group-hover:translate-x-1 transition-transform">→ Ideas</h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600 coffee-text">
               Patterns, essays, and thinking. Longer-form explorations of how systems work.
             </p>
           </div>
           
           <div className="group cursor-pointer">
             <h2 className="text-lg font-semibold mb-2 group-hover:translate-x-1 transition-transform">→ Lab</h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-gray-600 coffee-text">
               Where I test and validate new directions. Ideas before they become products.
             </p>
           </div>

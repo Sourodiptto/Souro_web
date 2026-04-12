@@ -31,10 +31,23 @@
 
 /* Typography */
 body {
+  font-family: Courier, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #ffffff;
+  background-color: #FFFDE7;
   color: #171717;
+}
+
+.coffee-text {
+  color: #6B4423;
+}
+
+.coffee-hover {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.coffee-hover:hover {
+  color: #6B4423;
 }
 
 h1, h2, h3, p {
