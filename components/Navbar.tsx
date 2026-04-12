@@ -47,16 +47,16 @@ export default function Navbar({ onMenuClick }: { onMenuClick: () => void }) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 px-6 py-4 border-b border-gray-200 bg-white/90 backdrop-blur-md z-40 transition-transform duration-300 ease-out ${
+      className={`fixed top-0 left-0 right-0 px-6 py-4 border-b border-amber-100/30 bg-gradient-to-br from-amber-50/90 to-yellow-50/90 backdrop-blur-md z-40 transition-transform duration-300 ease-out ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
       <div className="flex justify-between items-center w-full">
-        <h1 className="font-semibold text-lg tracking-wide">Sourodiptto</h1>
+        <h1 className="font-semibold text-lg tracking-wide text-gray-900">Sourodiptto</h1>
 
         <button
           onClick={onMenuClick}
-          className="text-sm font-medium px-4 py-2 hover:text-gray-600 transition-colors"
+          className="text-sm font-medium px-4 py-2 hover:text-amber-900 transition-colors"
         >
           Menu
         </button>

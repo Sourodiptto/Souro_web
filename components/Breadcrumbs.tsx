@@ -77,11 +77,11 @@ export default function Breadcrumbs() {
       <nav
         ref={containerRef}
         aria-label="Breadcrumb"
-        className="w-full py-3 px-6 overflow-x-hidden"
+        className="w-full py-3 px-6 overflow-x-hidden bg-gradient-to-br from-amber-50/90 to-yellow-50/90 border-b border-amber-200/30"
         style={{ marginTop: "60px" }}
       >
         <div className="max-w-3xl mx-auto">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
+          <ol className="flex items-center space-x-2 text-sm text-gray-600">
             {displayBreadcrumbs.map((crumb, index) => {
               const isActive = index === displayBreadcrumbs.length - 1;
               const isEllipsis = (crumb as any).isEllipsis;
@@ -90,7 +90,7 @@ export default function Breadcrumbs() {
                 return (
                   <li key="ellipsis" className="relative group">
                     <button
-                      className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors px-2"
+                      className="text-gray-400 hover:text-amber-900 transition-colors px-2"
                       onClick={() => setShowEllipsis(!showEllipsis)}
                       aria-label="Show more breadcrumbs"
                     >
@@ -98,12 +98,12 @@ export default function Breadcrumbs() {
                     </button>
 
                     {showEllipsis && (
-                      <div className="absolute left-0 mt-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg shadow-lg z-50 min-w-max">
+                      <div className="absolute left-0 mt-2 bg-white border border-amber-200/30 rounded-lg shadow-lg z-50 min-w-max">
                         {hiddenBreadcrumbs.map((item) => (
                           <Link
                             key={item.path}
                             href={item.path}
-                            className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 transition-colors first:rounded-t-lg last:rounded-b-lg text-sm"
+                            className="block px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-900 transition-colors first:rounded-t-lg last:rounded-b-lg text-sm"
                             onClick={() => setShowEllipsis(false)}
                           >
                             {item.label}
@@ -118,7 +118,7 @@ export default function Breadcrumbs() {
               return (
                 <li key={crumb.path} className="flex items-center min-w-0">
                   {index > 0 && (
-                    <span className="text-gray-300 dark:text-gray-700 mx-1.5 shrink-0" aria-hidden="true">
+                    <span className="text-amber-200 mx-1.5 shrink-0" aria-hidden="true">
                       /
                     </span>
                   )}
@@ -126,17 +126,17 @@ export default function Breadcrumbs() {
                   {isActive ? (
                     <span
                       aria-current="page"
-                      className="text-gray-700 dark:text-gray-300 font-medium truncate"
+                      className="text-gray-700 font-medium truncate"
                     >
                       {crumb.label}
                     </span>
                   ) : (
                     <Link
                       href={crumb.path}
-                      className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-200 relative group truncate"
+                      className="text-gray-600 hover:text-amber-900 transition-all duration-200 relative group truncate"
                     >
                       {crumb.label}
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 dark:bg-gray-100 group-hover:w-full transition-all duration-300" />
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-900 group-hover:w-full transition-all duration-300" />
                     </Link>
                   )}
                 </li>
