@@ -7,6 +7,11 @@
   --font-mono: var(--font-geist-mono);
 }
 
+html.dark {
+  --color-background: #111827;
+  --color-foreground: #f3f4f6;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #ededed;
@@ -46,6 +51,21 @@ body {
 
 .menu-content {
   animation: slideDownFade 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Dark mode utilities */
+html.dark {
+  color-scheme: dark;
+}
+
+html {
+  color-scheme: light;
+}
+
+/* Smooth transitions for theme switching */
+html.dark * {
+  transition-property: background-color, border-color, color;
+  transition-duration: 200ms;
 }
 
 .menu-link {

@@ -16,7 +16,7 @@ export default function MenuOverlay({ open, setOpen }: MenuOverlayProps) {
 
   return (
     <div
-      className="menu-container fixed inset-0 bg-black/40 backdrop-blur-md z-50 flex flex-col items-center justify-center"
+      className="menu-container fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-md z-50 flex flex-col items-center justify-center"
       onClick={() => setOpen(false)}
     >
       <div
@@ -26,7 +26,7 @@ export default function MenuOverlay({ open, setOpen }: MenuOverlayProps) {
         <Link
           href="/"
           onClick={() => setOpen(false)}
-          className="menu-link text-4xl font-bold text-gray-900 hover:text-amber-700 transition-colors"
+          className="menu-link text-4xl font-bold text-gray-900 dark:text-gray-50 hover:text-amber-700 dark:hover:text-amber-400 transition-colors"
         >
           Home
         </Link>
@@ -34,7 +34,7 @@ export default function MenuOverlay({ open, setOpen }: MenuOverlayProps) {
         <div>
           <button
             onClick={() => setExpandedAbout(!expandedAbout)}
-            className="w-full text-left text-4xl font-bold text-gray-900 hover:text-amber-700 transition-colors flex items-center justify-between gap-4"
+            className="w-full text-left text-4xl font-bold text-gray-900 dark:text-gray-50 hover:text-amber-700 dark:hover:text-amber-400 transition-colors flex items-center justify-between gap-4"
           >
             About
             <span className={`inline-flex items-center justify-center w-6 h-6 transition-transform duration-300 ${expandedAbout ? "rotate-180" : ""}`}>
@@ -45,14 +45,14 @@ export default function MenuOverlay({ open, setOpen }: MenuOverlayProps) {
           </button>
 
           {expandedAbout && (
-            <div className="mt-6 ml-4 space-y-6 border-l-2 border-gray-400 pl-6">
+            <div className="mt-6 ml-4 space-y-6 border-l-2 border-gray-400 dark:border-gray-600 pl-6">
               <Link
                 href="/works"
                 onClick={() => setOpen(false)}
                 className="block group"
               >
-                <h3 className="text-2xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors">→ Work</h3>
-                <p className="text-white text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">What I've built and explored. Products, projects, and the patterns behind them.</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-50 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">→ Work</h3>
+                <p className="text-gray-700 dark:text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">What I've built and explored. Products, projects, and the patterns behind them.</p>
               </Link>
 
               <Link
@@ -60,8 +60,8 @@ export default function MenuOverlay({ open, setOpen }: MenuOverlayProps) {
                 onClick={() => setOpen(false)}
                 className="block group"
               >
-                <h3 className="text-2xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors">→ Now</h3>
-                <p className="text-white text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">What currently has my attention. Real-time glimpses into what I'm thinking about and building.</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-50 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">→ Now</h3>
+                <p className="text-gray-700 dark:text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">What currently has my attention. Real-time glimpses into what I'm thinking about and building.</p>
               </Link>
 
               <Link
@@ -69,8 +69,8 @@ export default function MenuOverlay({ open, setOpen }: MenuOverlayProps) {
                 onClick={() => setOpen(false)}
                 className="block group"
               >
-                <h3 className="text-2xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors">→ Ideas</h3>
-                <p className="text-white text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Patterns, essays, and thinking. Longer-form explorations of how systems work.</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-50 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">→ Ideas</h3>
+                <p className="text-gray-700 dark:text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Patterns, essays, and thinking. Longer-form explorations of how systems work.</p>
               </Link>
 
               <Link
@@ -78,8 +78,8 @@ export default function MenuOverlay({ open, setOpen }: MenuOverlayProps) {
                 onClick={() => setOpen(false)}
                 className="block group"
               >
-                <h3 className="text-2xl font-bold text-gray-900 group-hover:text-amber-700 transition-colors">→ Lab</h3>
-                <p className="text-white text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Where I test and validate new directions. Ideas before they become products.</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-50 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">→ Lab</h3>
+                <p className="text-gray-700 dark:text-gray-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Where I test and validate new directions. Ideas before they become products.</p>
               </Link>
             </div>
           )}
@@ -88,7 +88,7 @@ export default function MenuOverlay({ open, setOpen }: MenuOverlayProps) {
         <div>
           <button
             onClick={() => setExpandedConnect(!expandedConnect)}
-            className="w-full text-left text-4xl font-bold text-gray-900 hover:text-amber-700 transition-colors flex items-center justify-between gap-4"
+            className="w-full text-left text-4xl font-bold text-gray-900 dark:text-gray-50 hover:text-amber-700 dark:hover:text-amber-400 transition-colors flex items-center justify-between gap-4"
           >
             Connect
             <span className={`inline-flex items-center justify-center w-6 h-6 transition-transform duration-300 ${expandedConnect ? "rotate-180" : ""}`}>
@@ -99,14 +99,14 @@ export default function MenuOverlay({ open, setOpen }: MenuOverlayProps) {
           </button>
 
           {expandedConnect && (
-            <div className="mt-4 ml-4 border-l-2 border-gray-400 pl-6 space-y-4">
-              <p className="text-white text-sm">Let's talk. Share ideas, collaborate, or just say hello.</p>
+            <div className="mt-4 ml-4 border-l-2 border-gray-400 dark:border-gray-600 pl-6 space-y-4">
+              <p className="text-gray-700 dark:text-gray-300 text-sm">Let's talk. Share ideas, collaborate, or just say hello.</p>
               <div className="space-y-3">
                 <a
                   href="https://www.linkedin.com/in/sourodipttomondal/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-gray-300 hover:text-amber-700 transition-colors"
+                  className="block text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-400 transition-colors"
                 >
                   LinkedIn
                 </a>
@@ -114,13 +114,13 @@ export default function MenuOverlay({ open, setOpen }: MenuOverlayProps) {
                   href="https://github.com/Sourodiptto"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-gray-300 hover:text-amber-700 transition-colors"
+                  className="block text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-400 transition-colors"
                 >
                   GitHub
                 </a>
                 <a
                   href="mailto:msourodiptto@gmail.com"
-                  className="block text-gray-300 hover:text-amber-700 transition-colors"
+                  className="block text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-400 transition-colors"
                 >
                   Email
                 </a>
