@@ -97,3 +97,237 @@ body::before {
 h1, h2, h3, p {
   line-height: 1.6;
 }
+
+/* ─── Hide SandCanvas on Works page ─── */
+body[data-page="works"] > svg.fixed {
+  display: none !important;
+}
+
+/* ─── Sumi Canvas (brush stamp background) ─── */
+.sumi-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ─── Shodo Timeline ─── */
+
+.shodo-container {
+  position: relative;
+  min-height: 60vh;
+  padding-bottom: 6rem;
+}
+
+.shodo-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+.shodo-path {
+  transition: stroke-dashoffset 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+              stroke-width 0.2s ease-out,
+              stroke-opacity 0.3s ease-out;
+}
+
+.shodo-milestones {
+  position: relative;
+  padding-left: 72px;
+  z-index: 2;
+}
+
+.shodo-milestone {
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(209, 196, 169, 0.3);
+  opacity: 0;
+  transform: scale(0.95) translateY(12px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.shodo-milestone:last-child {
+  border-bottom: none;
+}
+
+.shodo-milestone.shodo-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.shodo-year {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+}
+
+.shodo-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #171717;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.shodo-milestone:hover .shodo-title {
+  color: #6B4423;
+}
+
+.shodo-desc {
+  color: #6B4423;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.3s ease;
+}
+
+.shodo-milestone:hover .shodo-desc {
+  max-height: 10rem;
+  opacity: 1;
+}
+
+.shodo-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.3s ease 0.1s;
+}
+
+.shodo-milestone:hover .shodo-tags {
+  max-height: 4rem;
+  opacity: 1;
+}
+
+.shodo-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  border: 1px solid #d1c4a9;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+/* Shodo responsive */
+@media (max-width: 480px) {
+  .shodo-milestones {
+    padding-left: 56px;
+  }
+
+  .shodo-title {
+    font-size: 1.1rem;
+  }
+
+  .shodo-desc {
+    max-height: none;
+    opacity: 1;
+  }
+
+  .shodo-tags {
+    max-height: none;
+    opacity: 1;
+  }
+}
+
+/* ─── Schrödinger 404 Page ─── */
+
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.not-found-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #9ca3af;
+}
+
+.not-found-label span {
+  color: #6B4423;
+}
+
+.not-found-sub {
+  color: #6B4423;
+  font-size: 1rem;
+  max-width: 24rem;
+}
+
+/* Box image */
+.schrodinger-wrapper {
+  width: 420px;
+  height: 420px;
+}
+
+.schrodinger-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+}
+
+/* Magnetic "→ Origin" link */
+.not-found-link-wrapper {
+  margin-top: 1rem;
+}
+
+.magnetic-link {
+  display: inline-block;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #171717;
+  text-decoration: none;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid #d1c4a9;
+  border-radius: 2px;
+  transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+              color 0.3s ease,
+              border-color 0.3s ease;
+  will-change: transform;
+}
+
+.magnetic-link:hover {
+  color: #6B4423;
+  border-color: #6B4423;
+}
+
+/* Frozen SandCanvas — 50 % slower transitions when data-frozen is set */
+body[data-frozen="true"] .sand-line {
+  transition: stroke-dashoffset 0.8s ease-out !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .schrodinger-wrapper {
+    width: 280px;
+    height: 280px;
+  }
+
+  .not-found-sub {
+    font-size: 0.875rem;
+  }
+}

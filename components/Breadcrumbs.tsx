@@ -10,8 +10,37 @@ export default function Breadcrumbs() {
   const [showEllipsis, setShowEllipsis] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Custom breadcrumb overrides for specific routes
+  // Ideas, Lab, Works, Now are all sub-sections of About
+  const routeBreadcrumbs: Record<string, { label: string; path: string }[]> = {
+    "/about": [
+      { label: "Home", path: "/" },
+      { label: "About", path: "/about" },
+      { label: "Ideas", path: "/about#ideas" },
+    ],
+    "/lab": [
+      { label: "Home", path: "/" },
+      { label: "About", path: "/about" },
+      { label: "Lab", path: "/lab" },
+    ],
+    "/works": [
+      { label: "Home", path: "/" },
+      { label: "About", path: "/about" },
+      { label: "Works", path: "/works" },
+    ],
+    "/now": [
+      { label: "Home", path: "/" },
+      { label: "About", path: "/about" },
+      { label: "Now", path: "/now" },
+    ],
+  };
+
   // Convert pathname to breadcrumb items
   const getBreadcrumbs = () => {
+    if (routeBreadcrumbs[pathname]) {
+      return routeBreadcrumbs[pathname];
+    }
+
     const paths = pathname.split("/").filter((path) => path);
 
     const breadcrumbs = [

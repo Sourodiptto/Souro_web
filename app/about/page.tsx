@@ -1,3 +1,10 @@
+import EmptyState from "@/components/EmptyState";
+
 export default function Page() {
-  return <div>Page</div>;
+  return (
+    <EmptyState
+      label="About — still collapsing into form"
+      sub="This page is being written. Check back soon."
+    />
+  );
 }

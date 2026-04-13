@@ -19,29 +19,34 @@ export default function SandCanvas() {
     const paths = svg.querySelectorAll<SVGPathElement>(".sand-line");
 
     // Set each path's dasharray to its actual computed length
+    const frozen = document.body.getAttribute("data-frozen") === "true";
+    const speed = frozen ? "0.8s" : "0.4s";
+
     paths.forEach((p) => {
       const len = p.getTotalLength();
       p.style.strokeDasharray = `${len}`;
       p.style.strokeDashoffset = `${len}`;
-      p.style.transition = "stroke-dashoffset 0.4s ease-out";
+      p.style.transition = `stroke-dashoffset ${speed} ease-out`;
     });
 
     const onScroll = () => {
+      const isFrozen = document.body.getAttribute("data-frozen") === "true";
+
       // Instant appearance: fast transition IN
       svg.style.transition = "opacity 0.1s ease-out";
-      svg.style.opacity = "0.4";
+      svg.style.opacity = isFrozen ? "0.25" : "0.4";
 
       paths.forEach((p) => {
         const len = p.getTotalLength();
         const offset = Math.max(0, len - window.scrollY);
+        p.style.transition = `stroke-dashoffset ${isFrozen ? "0.8s" : "0.4s"} ease-out`;
         p.style.strokeDashoffset = `${offset}`;
       });
 
-      // Debounce: detect scroll stop after 150ms
+      // Debounce: detect scroll stop
       if (timerRef.current) clearTimeout(timerRef.current);
       timerRef.current = setTimeout(() => {
-        // Slow sinking disappearance: weighted ease-out
-        svg.style.transition = "opacity 2s cubic-bezier(0.4, 0, 0.2, 1)";
+        svg.style.transition = `opacity ${isFrozen ? "4s" : "2s"} cubic-bezier(0.4, 0, 0.2, 1)`;
         svg.style.opacity = "0";
       }, 150);
     };
