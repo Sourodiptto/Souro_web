@@ -16,7 +16,6 @@ export default function Breadcrumbs() {
     "/about": [
       { label: "Home", path: "/" },
       { label: "About", path: "/about" },
-      { label: "Ideas", path: "/about#ideas" },
     ],
     "/lab": [
       { label: "Home", path: "/" },
