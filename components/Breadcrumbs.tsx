@@ -74,7 +74,7 @@ export default function Breadcrumbs() {
     return () => window.removeEventListener("resize", checkOverflow);
   }, [pathname]);
 
-  // Generate JSON-LD schema
+  // Generate JSON-LD schema (paths only — origin added client-side by search engines)
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -82,7 +82,7 @@ export default function Breadcrumbs() {
       "@type": "ListItem",
       "position": index + 1,
       "name": crumb.label,
-      "item": `${typeof window !== "undefined" ? window.location.origin : ""}${crumb.path}`
+      "item": crumb.path
     }))
   };
 
@@ -106,7 +106,7 @@ export default function Breadcrumbs() {
       <nav
         ref={containerRef}
         aria-label="Breadcrumb"
-        className="w-full py-3 px-6 overflow-x-hidden bg-gradient-to-br from-amber-50/90 to-yellow-50/90 border-b border-amber-200/30"
+        className="w-full py-3 px-6 overflow-x-auto bg-linear-to-br from-amber-50/90 to-yellow-50/90 border-b border-amber-200/30"
         style={{ marginTop: "60px" }}
       >
         <div className="max-w-3xl mx-auto">

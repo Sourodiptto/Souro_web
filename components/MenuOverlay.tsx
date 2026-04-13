@@ -65,7 +65,7 @@ export default function MenuOverlay({ open, setOpen }: MenuOverlayProps) {
               </Link>
 
               <Link
-                href="/ideas"
+                href="/about"
                 onClick={() => setOpen(false)}
                 className="block group"
               >
