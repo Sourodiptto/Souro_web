@@ -28,6 +28,22 @@ const milestones: Milestone[] = [
       "Early explorations — the first attempts at understanding what systems optimize for when nobody is watching.",
     tags: ["exploration"],
   },
+  {
+    id: "placeholder-4",
+    year: "2023",
+    title: "Coming soon",
+    description:
+      "Early explorations — the first attempts at understanding what systems optimize for when nobody is watching.",
+    tags: ["exploration"],
+  },
+  {
+    id: "placeholder-5",
+    year: "2022",
+    title: "Coming soon",
+    description:
+      "Early explorations — the first attempts at understanding what systems optimize for when nobody is watching.",
+    tags: ["exploration"],
+  },
 ];
 
 export default function WorksPage() {
